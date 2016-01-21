@@ -1,0 +1,56 @@
+<div layout="row">
+    <md-button class="md-primary" ui-sref="director.index">
+        <md-icon>chevron_left</md-icon>
+        Back to list
+    </md-button>
+</div>
+
+
+<div layout="row" layout-xs="column">
+
+    <div flex="75" flex-xs="100" flex-order-xs="2">
+
+        <h1 flex="100" hide-xs>{{vm.director.fullName}}</h1>
+
+        <h2 flex="100">Biography</h2>
+        {{vm.director.bio}}
+
+        <h2 flex="100">Blockbusters</h2>
+        <md-table-container flex="95">
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column>Movie name</th>
+                    <th md-column md-numeric>Release year</th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="b in vm.director.blockbusters | orderBy: 'release'">
+                    <td md-cell>{{b.movieName}}</td>
+                    <td md-cell>{{b.release}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+
+    <div flex="25" flex-xs="100" layout="column" flex-order-xs="1">
+
+        <h1 flex="100" hide-gt-xs>{{vm.director.fullName}}</h1>
+
+        <div flex="100">
+            <img ng-src="{{vm.director.image}}" alt="{{vm.director.fullName}}">
+        </div>
+
+        <div layout="column" layout-margin flex="100">
+            <property key="'Age'" value="vm.director.age"></property>
+            <property key="'Sex'" value="vm.director.sex"></property>
+            <property key="'Nationality'" value="vm.director.nationality"></property>
+            <property key="'Birthday'" value="vm.director.birthday | date: 'dd/MMM/yyyy'"></property>
+            <property key="'Spouse'" value="vm.director.spouse"></property>
+            <property key="'Children'" value="vm.director.children.length ? 'vm.director.children' : 'None'"></property>
+        </div>
+    </div>
+</div>
+
+

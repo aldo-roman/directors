@@ -1,0 +1,26 @@
+<h1>List of Directors</h1>
+
+<md-table-container>
+    <table md-table class="directors">
+        <thead md-head>
+        <tr md-row>
+            <th md-column>Name</th>
+            <th md-column>Sex</th>
+            <th md-column>Nationality</th>
+            <th md-column>City</th>
+            <th md-column>Birthdate</th>
+            <th md-column md-numeric>Age</th>
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row ng-repeat="d in vm.directors | orderBy: 'name'" ui-sref="director.detail">
+            <td md-cell>{{d.name}}</td>
+            <td md-cell>{{(d.sex==='M')?'Male':'Female'}}</td>
+            <td md-cell>{{d.nationality}}</td>
+            <td md-cell>{{d.city}}</td>
+            <td md-cell>{{d.birthday | date: 'dd/MMM/yyyy'}}</td>
+            <td md-cell>{{d.age}}</td>
+        </tr>
+        </tbody>
+    </table>
+</md-table-container>
