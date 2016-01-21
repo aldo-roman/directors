@@ -10,6 +10,11 @@ Then you can run the app locally with the gulp serve task:
 
 `gulp serve`
 
+## Test
+You can run e2e tests with protractor:
+
+`gulp protractor`
+
 ## Build
 
 To build the distributable app, just run:
