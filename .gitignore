@@ -6,4 +6,7 @@ coverage/
 .tmp/
 dist/
 
+src/app/**/*.js
+src/app/**/*.js.map
+
 typings/
